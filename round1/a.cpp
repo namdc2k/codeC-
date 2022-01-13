@@ -1,6 +1,6 @@
 /**
  * author:  namdata4920
- * created: 24.12.2021  23:05:11
+ * created: 12.01.2022  19:03:35
  *
  * from Hanoi University of Science & Technology
  *
@@ -141,9 +141,33 @@ struct union_find {
 //                                                                                     //
 /////////////////////////////////////////////////////////////////////////////////////////
 
+
 void solve(ll testcase) {
-	cout << 1 << nl;
+	int n;cin >> n;
+	vll ans(n + 1, 0);
+	vll have;
+	for (int i = 0; i < n; i++) {
+		ll x;cin >> x;
+		if (x <= n and ans[x] == 0)ans[x] = 1;
+		else have.push_back(x);
+	}
+	while (!have.empty()) {
+		ll k = have.back();
+		have.pop_back();
+		k /= 2;
+		if (k <= n and k > 0 and ans[k] == 0)ans[k] = 1;
+		else if (k > 1)have.push_back(k);
+	}
+	for (int i = 1; i <= n; i++) {
+		if (ans[i] == 0) {
+			no;
+			return;
+		}
+	}
+	yes;
 }
+
+
 
 int main() {
 	fast;
@@ -151,7 +175,7 @@ int main() {
 	//init();
 	ll tc = 1;
 	ll i = 1;
-	//cin >> tc;
+	cin >> tc;
 	for (i = 1; i <= tc; i++)
 		solve(i);
 	//<3
