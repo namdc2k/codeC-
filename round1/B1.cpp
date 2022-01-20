@@ -1,30 +1,27 @@
-#include<bits/stdc++.h>
+#include <iostream>
 using namespace std;
+#define ll long long
 
-struct Employee {
-	string name, gender, workingYears, level;
-};
+int UCLN(int a, int b) {
+	if (b == 0) return a;
+	return UCLN(b, a % b);
+}
+ll BCNN(int a, int b) {
+	return a / UCLN(a, b) * b;
+}
 
 int main() {
-	int n;
-	cout << "so luong nhan vien N= ";
-	cin >> n;
-	cout << endl;
-	Employee NV[n], tmp;
-	// nhap thong tin nhan vien;
-	for (int i = 0; i < n; i++) {
-		cin >> tmp.name;
-		cin >> tmp.gender;
-		cin >> tmp.workingYears;
-		cin >> tmp.level;
+	int a, b;
+	int tc;
+	cout << "so testcase: ";
+	cin >> tc;
+	while (tc--) {
+		// nhap a,b > 0
+		while (cin >> a >> b) {
+			if (a > 0 and b > 0)break;
+		}
+		cout << "UCLN: " << UCLN(a, b) << endl;
+		cout << "BCNN: " << BCNN(a, b) << endl;
 	}
-	//xuat
-	cout << "danh sach cac nhan vien" << endl;
-	for (int i = 0; i < n; i++) {
-		cout << "Name: " << tmp.name << endl;
-		cout << "Gender: " << tmp.gender << endl;
-		cout << "Working years: " << tmp.workingYears << endl;
-		cout << "Level: " << tmp.level << endl;
-	}
-	return 0;
+	return(0);
 }

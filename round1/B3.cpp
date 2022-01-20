@@ -1,50 +1,75 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-void printReverse(int arr[], int size) {
-	int* ptr;
-	ptr = &arr[size - 1];
-	cout << "arr reverse: ";
-	for (int i = 0; i < size; i++) {
-		cout << *ptr << ' ';
-		ptr--;
-	}
-	cout << endl;
+unsigned int sumDigits(unsigned int n) {
+    unsigned int res = 0;
+    while (n > 0) {
+        res += n % 10;
+        n /= 10;
+    }
+    return res;
 }
-void SumALL(int arr[], int size) {
-	int sum = 0;
-	int* ptr;
-	ptr = &arr[size - 1];
-	for (int i = 0; i < size; i++) {
-		sum += *ptr;
-		ptr--;
-	}
-	cout << "Sum arr: " << sum << endl;
+unsigned int reverse(unsigned int n) {
+    unsigned int res = 0;
+    while (n > 0) {
+        res *= 10;
+        res += n % 10;
+        n /= 10;
+    }
+    return res;
 }
-void MinMax(int arr[], int size) {
-	int m = INT_MAX;
-	int M = INT_MIN;
-	int* ptr;
-	ptr = &arr[size - 1];
-	for (int i = 0; i < size; i++) {
-		m = min(m, *ptr);
-		M = max(M, *ptr);
-		ptr--;
-	}
-	cout << "Min of arr: " << m << endl;
-	cout << "Max of arr: " << M << endl;
+
+bool isPerpect(int n) {
+    int res = 1;
+    for (int i = 2; i <= n / 2; i++) {
+        if (n % i == 0)res += i;
+    }
+    if (n == res)return true;
+    else return false;
+}
+bool isPrime(int n) {
+    int k = sqrt(n);
+    if (n % 2 == 0)return false;
+    for (int i = 3; i <= k; i += 2) {
+        if (n % i == 0)return false;
+    }
+    return true;
+}
+void factor(int n) {
+    int res = n;
+    map<int, int> mp;
+    while (n % 2 == 0) {
+        mp[2]++;
+        n /= 2;
+    }
+    int k = 3;
+    while (n > 1) {
+        if (n % k == 0) {
+            while (n % k == 0) {
+                mp[k]++;
+                n /= k;
+            }
+        }
+        k += 2;
+    }
+    k = 0;
+    cout << res << " = ";
+    for (auto x : mp) {
+        if (k > 0)cout << "* ";
+        cout << x.first << ' ';
+        if (x.second > 1)cout << "^ " << x.second << ' ';
+        k++;
+    }
 
 }
 
 int main() {
-	int size;
-	cout << "Size arr: ";
-	cin >> size;
-	int arr[size];
-	cout << "Input arr: ";
-	for (int i = 0; i < size; i++)cin >> arr[i];
-	printReverse(arr, size);
-	SumALL(arr, size);
-	MinMax(arr, size);
-	return 0;
+    cout << "Nhap N: ";
+    int n;cin >> n;
+    cout << "Tong cac chu so cua N: " << sumDigits(n) << endl;
+    cout << "So co cac chu so nguoc N: " << reverse(n) << endl;// bo so 0 o dau vd: 100 reverse = 1 
+    cout << "N co phai so hoan hao khong: " << (isPerpect(n) ? "Co" : "Khong") << endl;
+    cout << "N co phai so nguyen to khong: " << (isPrime(n) ? "Co" : "Khong") << endl;
+    cout << "Ket qua phan tich thanh phan snt: ";
+    factor(n);
 }

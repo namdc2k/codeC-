@@ -1,47 +1,59 @@
-#include<bits/stdc++.h>
+#include <iostream>
+#include<vector>
 using namespace std;
+#define ll long long
 
-const long long inf = (long long)1e18 + 7;
-
-float Plus(float a, float b) {
-	return a + b;
+int n;
+vector<int> a, b;
+void input() {
+    a.resize(n);
+    b.resize(n);
+    for (int i = 0; i < n; i++) cin >> a[i];
+    for (int i = 0; i < n; i++) cin >> b[i];
 }
-float Minus(float a, float b) {
-	return a - b;
+void add(vector<int> a, vector<int> b) {
+    vector<int> c;
+    c.resize(n);
+    cout << "mang C: ";
+    for (int i = 0; i < n; i++) c[i] = a[i] + b[i], cout << c[i] << ' ';
+    cout << endl;
 }
-float Multiply(float a, float b) {
-	return a * b;
-}
-float Divide(float a, float b) {
-	if (b != 0)return a / b;
-	else return inf;
-}
-float Mod(float a, float b) {
-	// mod chi ap dung cho so nguyen
-	if ((int)a == a and int(b) == b)
-		if (b != 0)return (int)a % (int)b;
-	return inf;
-}
-void print(float a, float b, float (*fun)(float, float)) {
-	float result = fun(a, b);
-
-	cout << result << endl;
+void sub(vector<int> a, vector<int> b) {
+    vector<int> c;
+    c.resize(n);
+    cout << "mang C: ";
+    for (int i = 0; i < n; i++) c[i] = a[i] - b[i], cout << c[i] << ' ';
+    cout << endl;
 }
 
 int main() {
-	cout << setprecision(7);// in 7 so co nghia sau day phay
-	float a, b;
-	string s;
-	while (1) {
-		cin >> s;
-		if (s == "e")break;
-		a = stof(s);// string to float
-		cin >> b;
-		cout << "Plus "; print(a, b, &Plus);
-		cout << "Minus ";print(a, b, &Minus);
-		cout << "Multiply ";print(a, b, &Multiply);
-		cout << "Divide ";print(a, b, &Divide);
-		cout << "Mod ";print(a, b, &Mod);
-	}
-	return 0;
+    cout << "Nhap n: ";cin >> n;
+    while (1) {
+        cout << "1: nhap mang A va B " << endl;
+        cout << "2: cong mang c = A + B " << endl;
+        cout << "3: tru mang c = A - B  " << endl;
+        cout << "4: thoat chuong trinh  " << endl;
+        cout << "Choose : ";
+        int choose;
+        cin >> choose;
+        switch (choose) {
+        case 1:
+            input();
+            break;
+        case 2:
+            add(a, b);
+            break;
+        case 3:
+            sub(a, b);
+            break;
+        case 4: {
+            cout << "nhan K hoac k de thoat? ";
+            char c;
+            cin >> c;
+            if (c == 'k' or c == 'K') exit(0);
+            else break;
+        }
+        }
+    }
+    return(0);
 }

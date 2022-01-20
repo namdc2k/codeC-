@@ -1,6 +1,6 @@
 /**
  * author:  namdata4920
- * created: 12.01.2022  19:03:35
+ * created: 16.01.2022  21:41:57
  *
  * from Hanoi University of Science & Technology
  *
@@ -22,7 +22,7 @@ using namespace std;
 #define ub upper_bound
 #define all(x) x.begin(), x.end()
 #define getV(a,n) for (int i = 0; i < n ; i++) cin>>a[i]
-#define vec(x) vector<x>
+#define vec<x> vector<x>
 #define ins insert
 #define nl '\n'
 #define yes cout << "YES" << nl
@@ -141,30 +141,39 @@ struct union_find {
 //                                                                                     //
 /////////////////////////////////////////////////////////////////////////////////////////
 
-
+ll calc(ll x, ll y) {
+	return (y - x + 1) * (x + y) / 2;
+}
+bool cmp(pair<ll, ll>a, pair<ll, ll> b) {
+	if (a.first == b.first)return a.second > b.second;
+	else return a.first < b.first;
+}
 void solve(ll testcase) {
 	int n;cin >> n;
-	vll ans(n + 1, 0);
-	vll have;
+	vll k(n), h(n);
 	for (int i = 0; i < n; i++) {
-		ll x;cin >> x;
-		if (x <= n and ans[x] == 0)ans[x] = 1;
-		else have.push_back(x);
+		cin >> k[i];
 	}
-	while (!have.empty()) {
-		ll k = have.back();
-		have.pop_back();
-		k /= 2;
-		if (k <= n and k > 0 and ans[k] == 0)ans[k] = 1;
-		else if (k > 1)have.push_back(k);
+	for (int i = 0; i < n; i++) {
+		cin >> h[i];
 	}
-	for (int i = 1; i <= n; i++) {
-		if (ans[i] == 0) {
-			no;
-			return;
+	vector<pair<ll, ll>> p;
+	for (int i = 0; i < n; i++) {
+		int res = k[i] - h[i];
+		p.push_back(make_pair(res, k[i]));
+	}
+	sort(all(p), cmp);
+	for (auto x : p)cout << x.first << ' ' << x.second << nl;
+	ll ans = 0;
+	int pos = 0;
+	int res = 0;
+	for (int i = 0; i < n; i++) {
+		if (res < p[i].first) {
+			pos = i;
+			res = p[i].second;
 		}
 	}
-	yes;
+	cout << ans << nl;
 }
 
 

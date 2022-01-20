@@ -1,6 +1,6 @@
 /**
  * author:  namdata4920
- * created: 24.12.2021  23:05:11
+ * created: 15.01.2022  21:53:31
  *
  * from Hanoi University of Science & Technology
  *
@@ -141,31 +141,35 @@ struct union_find {
 //                                                                                     //
 /////////////////////////////////////////////////////////////////////////////////////////
 
+
 void solve(ll testcase) {
-	int n;cin >> n;
-	string a, b;cin >> a >> b;
-	int cnt = 0, cnt2 = 0;
-	for (int i = 0; i < n; i++) {
-		if (a[i] == '1')cnt++;
-		if (b[i] == '1')cnt2++;
+	int n, m;cin >> n >> m;
+	int cnt = 0;
+	int st1 = n / 2;
+	int st2 = m / 2;
+	int start = st1 + st2;
+	if (n == 2 and m == 2) {
+		cout << "2 2 2 2" << nl;
 	}
-	if (a == b) {
-		cout << 0 << nl;
-		return;
+	while (st1 < n) {
+		for (int i = cnt; i < st1 * st2; i++) {
+			cout << start << ' ';
+		}
+		cnt = st1 * st2;
+		st1++;
+		st2++;
+		start++;
 	}
-	int ans = iMax;
-	int k = 0, h = 0, k1 = 0, h1 = 0;
-	for (int i = 0; i < n; i++) {
-		if (a[i] == '1' and b[i] == '0')h++;
-		else if (a[i] == '0' and b[i] == '1')h1++;
-		else if (a[i] == '1' and b[i] == '1')k++;
-		else k1++;
+	for (int i = cnt; i < n * m; i++) {
+		if (i < n * m - 4 or (n == 1 or m == 1))
+			cout << start - 1 << ' ';
+		else cout << start << ' ';
 	}
-	if (h1 == h)ans = h1 + h;
-	if ((k1 + 1 == k))ans = min(k, ans);
-	if (ans == iMax)ans = -1;
-	cout << ans << nl;
+	cout << nl;
+
 }
+
+
 
 int main() {
 	fast;
