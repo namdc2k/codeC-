@@ -100,7 +100,6 @@ const long double PI = 3.141592653589793238462643383279;
 void solve(ll tc) {
 	int a;
 	vector<int> a(n);
-	
 }
 int main() {
 	fast;
