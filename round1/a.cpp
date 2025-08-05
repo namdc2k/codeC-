@@ -1,8 +1,8 @@
- /**
- * author:  bsmaN
- * created: 18.11.2024   00:37:34
- * From Hanoi University of Science & Technology with luv
- * 
+/**
+* author:  bsmaN
+* created: 05.08.2025   18:55:43
+* From Hanoi University of Science & Technology with luv
+*
 ⣿⣿⣿⣿⣿⣿⡷⣯⢿⣿⣷⣻⢯⣿⡽⣻⢿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣇⠸⣿⣿⣆⠹⣿⣿⢾⣟⣯⣿⣿⣿⣿⣿⣿⣽⣻⣿⣿⣿⣿⣿⣿⣿
 ⣿⣿⣿⣿⣿⣿⣻⣽⡿⣿⣎⠙⣿⣞⣷⡌⢻⣟⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣷⣿⣿⣿⣿⣿⣿⡄⠹⣿⣿⡆⠻⣿⣟⣯⡿⣽⡿⣿⣿⣿⣿⣽⡷⣯⣿⣿⣿⣿⣿⣿
 ⣿⣿⣿⣿⣿⣿⣟⣷⣿⣿⣿⡀⠹⣟⣾⣟⣆⠹⣯⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇⢠⡘⣿⣿⡄⠉⢿⣿⣽⡷⣿⣻⣿⣿⣿⣿⡝⣷⣯⢿⣿⣿⣿⣿
@@ -34,41 +34,41 @@
 ⣿⣿⣿⣿⣦⡙⣿⣆⢻⡌⢿⣶⢤⣉⣙⣿⣷⡀⠙⠽⠷⠄⠹⣿⣟⣿⣆⢙⣋⣤⣤⣤⣄⣀⢀⢀⢀⢀⣾⣿⣟⡷⣯⡿⢃⣼⣿⣿⣿⠇⣼⡟⣡⣿⣿⣿⢀⡿⢠⠈⣿
 ⣿⣿⣿⣿⣿⣷⣮⣿⣿⣿⡌⠁⢤⣤⣤⣤⣬⣭⣴⣶⣶⣶⣆⠈⢻⣿⣿⣆⢻⣿⣿⣿⣿⣿⣿⣷⣶⣤⣌⣉⡘⠛⠻⠶⣿⣿⣿⣿⡟⣰⣫⣴⣿⣿⣿⣿⠄⣷⣿⣿⣿
 */
- 
-  #include <algorithm>
-  #include <bitset>
-  #include <complex>
-  #include <deque>
-  #include <exception>
-  #include <fstream>
-  #include <functional>
-  #include <iomanip>
-  #include <ios>
-  #include <iosfwd>
-  #include <iostream>
-  #include <istream>
-  #include <iterator>
-  #include <limits>
-  #include <list>
-  #include <locale>
-  #include <map>
-  #include <memory>
-  #include <new>
-  #include <numeric>
-  #include <ostream>
-  #include <queue>
-  #include <set>
-  #include <sstream>
-  #include <stack>
-  #include <stdexcept>
-  #include <streambuf>
-  #include <string>
-  #include <typeinfo>
-  #include <utility>
-  #include <valarray>
-  #include <vector>
+
+#include <algorithm>
+#include <bitset>
+#include <complex>
+#include <deque>
+#include <exception>
+#include <fstream>
+#include <functional>
+#include <iomanip>
+#include <ios>
+#include <iosfwd>
+#include <iostream>
+#include <istream>
+#include <iterator>
+#include <limits>
+#include <list>
+#include <locale>
+#include <map>
+#include <memory>
+#include <new>
+#include <numeric>
+#include <ostream>
+#include <queue>
+#include <set>
+#include <sstream>
+#include <stack>
+#include <stdexcept>
+#include <streambuf>
+#include <string>
+#include <typeinfo>
+#include <utility>
+#include <valarray>
+#include <vector>
 using namespace std;
- 
+
 #ifndef ONLINE_JUDGE 
 #define namdc chienngu 
 #endif 
@@ -92,24 +92,24 @@ typedef struct vector<ld> vld;
 typedef struct vector<vll> vvll;
 typedef struct vector<vld> vvld;
 typedef struct pair<ll, ll> pll;
-const int MOD = (int)1e9+7;
+const int MOD = (int)1e9 + 7;
 const int MX = (int)2e5 + 5;
 const long long INF = 1e18 + 7;
 const long double PI = 3.141592653589793238462643383279;
- 
+
 void solve(ll tc) {
-	int a;
-	vector<int> a(n);
+    int a;cin >> a;
+    cout << a << nl;
 }
 int main() {
-	fast;
+    fast;
 #ifdef namdc
-	freopen("input.txt", "r", stdin);
-	freopen("output.txt", "w", stdout);
+    freopen("input.txt", "r", stdin);
+    freopen("output.txt", "w", stdout);
 #endif
-	cout << setprecision(10) << fixed;
-	ll tc = 1;cin >> tc;
-	for (int i = 1; i <= tc; i++)
-		solve(i);
-	return (0 - 0);
+    cout << setprecision(10) << fixed;
+    ll tc = 1;cin >> tc;
+    for (int i = 1; i <= tc; i++)
+        solve(i);
+    return (0 - 0);
 }
